@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar"
-import "../globals.css"
-import DetectionForm from "@/components/DetectionForm"
+import DetectionForm from "@/components/TwitterDetectionForm"
 import Footer from "@/components/Footer"
 
 export default function DetectionPage() {

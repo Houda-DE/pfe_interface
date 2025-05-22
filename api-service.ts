@@ -1,5 +1,5 @@
 export async function predictFakeProfile(data: number[]): Promise<string> {
-    const response = await fetch("http://localhost:8000/predict", {
+    const response = await fetch("http://localhost:8000/twitter_predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ data }),

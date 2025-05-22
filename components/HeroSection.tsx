@@ -1,118 +1,188 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { Shield, CheckCircle, Lock } from "lucide-react"
-import { Button } from "./ui/button"
+import { Twitter, Facebook, Instagram, ShieldCheck, BarChart2, Award } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
-  const scrollToForm = () => {
-    const formElement = document.getElementById("detection-form")
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-          <div className={`space-y-4 ${isVisible ? "animate-fadeIn" : "opacity-0"}`}>
-            <div className="inline-flex items-center rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-800 mb-2">
-              <CheckCircle className="mr-1 h-4 w-4" />
-              <span>Précision de plus de 98%</span>
+    <section id="hero" className="relative overflow-hidden bg-[#0a1929] text-white py-24 md:py-32">
+      {/* Éléments décoratifs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-0 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute -bottom-8 right-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+
+        {/* Grille décorative */}
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]"></div>
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="text-left space-y-8">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-300 text-sm font-medium mb-2">
+              <BarChart2 className="h-4 w-4 mr-2" />
+              <span>F1 Score &gt; 90% sur toutes les plateformes</span>
             </div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
-              Détectez les faux profils Twitter en un clic
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tighter">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+                Détectez les faux profils
+              </span>
+              <br />
+              sur les réseaux sociaux
             </h1>
-            <p className="max-w-[600px] text-gray-300 md:text-xl">
-              Un outil intelligent basé sur l&apos;IA pour vérifier les comptes Twitter suspects avec plus de 98% de
-              precision.
+
+            <p className="text-lg md:text-xl text-blue-100/80 max-w-xl">
+              Notre technologie avancée d'IA analyse avec précision les profils
+              <span className="relative inline-block mx-1">
+                <Twitter className="h-5 w-5 inline text-[#1DA1F2]" />
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1DA1F2] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#1DA1F2]"></span>
+                </span>
+              </span>
+              <span className="relative inline-block mx-1">
+                <Facebook className="h-5 w-5 inline text-[#4267B2]" />
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4267B2] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#4267B2]"></span>
+                </span>
+              </span>
+              <span className="relative inline-block mx-1">
+                <Instagram className="h-5 w-5 inline text-[#E1306C]" />
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E1306C] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#E1306C]"></span>
+                </span>
+              </span>
+              pour identifier les comptes frauduleux avec une précision inégalée.
             </p>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button
-                onClick={scrollToForm}
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8"
-              >
-                Commencer la détection
-              </Button>
+
+            <div className="flex flex-wrap gap-4">
+              <Link href="/detection">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white border-0 rounded-lg shadow-lg shadow-blue-600/30 hover:shadow-blue-700/40 transition-all"
+                >
+                  <Twitter className="mr-2 h-5 w-5" />
+                  Détecter un profil Twitter
+                </Button>
+              </Link>
+              <Link href="/facebook-detection">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white border-0 rounded-lg shadow-lg shadow-indigo-600/30 hover:shadow-indigo-700/40 transition-all"
+                >
+                  <Facebook className="mr-2 h-5 w-5" />
+                  Détecter un profil Facebook
+                </Button>
+              </Link>
+              <Link href="/instagram-detection">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white border-0 rounded-lg shadow-lg shadow-purple-600/30 hover:shadow-purple-700/40 transition-all"
+                >
+                  <Instagram className="mr-2 h-5 w-5" />
+                  Détecter un profil Instagram
+                </Button>
+              </Link>
             </div>
-            <div className="flex items-center space-x-4 text-sm text-gray-300 mt-4">
-              <div className="flex items-center">
-                <Shield className="mr-1 h-4 w-4 text-blue-400" />
-                <span>Sécurisé</span>
+
+            <div className="flex items-center space-x-8 pt-4">
+              <div className="flex items-center space-x-2">
+                <ShieldCheck className="h-5 w-5 text-green-400" />
+                <span className="text-sm text-blue-100">Sécurisé</span>
               </div>
-              <div className="flex items-center">
-                <Lock className="mr-1 h-4 w-4 text-blue-400" />
-                <span>Confidentiel</span>
+              <div className="flex items-center space-x-2">
+                <Award className="h-5 w-5 text-yellow-400" />
+                <span className="text-sm text-blue-100">F1 Score &gt; 90%</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <BarChart2 className="h-5 w-5 text-cyan-400" />
+                <span className="text-sm text-blue-100">Haute précision</span>
               </div>
             </div>
           </div>
-          <div className={`flex justify-center ${isVisible ? "animate-fadeInRight" : "opacity-0"}`}>
-            <div className="relative w-full max-w-md">
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-blue-700 rounded-full opacity-20 animate-pulse delay-300"></div>
-              <div className="relative z-10 bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6] p-8 rounded-2xl shadow-2xl">
-                <div className="flex justify-center mb-6">
-                  <div className="relative">
-                    <div className="w-24 h-24 bg-white rounded-full overflow-hidden border-4 border-blue-600 shadow-lg">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <svg viewBox="0 0 24 24" className="w-16 h-16 text-gray-400" fill="currentColor">
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="absolute -right-2 -bottom-2 bg-green-500 p-2 rounded-full border-2 border-white shadow-lg">
-                      <Lock className="h-5 w-5 text-white" />
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="h-2.5 bg-blue-300 bg-opacity-30 rounded-full w-full"></div>
-                  <div className="h-2.5 bg-blue-300 bg-opacity-30 rounded-full w-3/4"></div>
-                  <div className="flex items-center space-x-2 mt-6">
-                    <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-white" />
-                    </div>
-                    <div className="h-2.5 bg-blue-300 bg-opacity-30 rounded-full w-1/2"></div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-red-400 rounded-full flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 text-white"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-blue-300 bg-opacity-30 rounded-full w-1/3"></div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-4 border-t border-blue-400 border-opacity-30">
+
+          <div className="relative">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <div className="relative bg-[#0c1f38] rounded-2xl p-6 shadow-2xl">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-xl font-bold text-white">Performance des modèles</h3>
+                <div className="bg-blue-900/50 px-3 py-1 rounded-full text-xs font-medium text-blue-300">F1 Score</div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <div className="flex items-center space-x-1">
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      <span className="text-xs text-blue-100">Vérification complète</span>
+                    <div className="flex items-center">
+                      <Twitter className="h-5 w-5 text-[#1DA1F2] mr-2" />
+                      <span className="text-sm font-medium text-blue-100">Twitter</span>
                     </div>
-                    <span className="text-xs font-bold text-blue-100">98.2%</span>
+                    <span className="text-sm font-bold text-blue-300">93%</span>
                   </div>
+                  <div className="w-full bg-blue-900/30 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-blue-400 to-cyan-400 h-2 rounded-full"
+                      style={{ width: "93%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                      <Facebook className="h-5 w-5 text-[#4267B2] mr-2" />
+                      <span className="text-sm font-medium text-blue-100">Facebook</span>
+                    </div>
+                    <span className="text-sm font-bold text-blue-300">91%</span>
+                  </div>
+                  <div className="w-full bg-blue-900/30 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full"
+                      style={{ width: "91%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                      <Instagram className="h-5 w-5 text-[#E1306C] mr-2" />
+                      <span className="text-sm font-medium text-blue-100">Instagram</span>
+                    </div>
+                    <span className="text-sm font-bold text-blue-300">92%</span>
+                  </div>
+                  <div className="w-full bg-blue-900/30 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full"
+                      style={{ width: "92%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-blue-800/50">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-medium text-blue-200">Score moyen</span>
+                    <span className="text-lg font-bold text-white">92%</span>
+                  </div>
+                  <div className="text-xs text-blue-300/70 italic">Basé sur des tests avec plus de 10,000 profils</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Vague décorative en bas */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
       </div>
     </section>
   )
