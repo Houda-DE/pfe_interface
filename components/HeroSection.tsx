@@ -119,7 +119,7 @@ export default function HeroSection() {
                       <Twitter className="h-5 w-5 text-[#1DA1F2] mr-2" />
                       <span className="text-sm font-medium text-blue-100">Twitter</span>
                     </div>
-                    <span className="text-sm font-bold text-blue-300">93%</span>
+                    <span className="text-sm font-bold text-blue-300">92.12%</span>
                   </div>
                   <div className="w-full bg-blue-900/30 rounded-full h-2">
                     <div
@@ -135,7 +135,7 @@ export default function HeroSection() {
                       <Facebook className="h-5 w-5 text-[#4267B2] mr-2" />
                       <span className="text-sm font-medium text-blue-100">Facebook</span>
                     </div>
-                    <span className="text-sm font-bold text-blue-300">91%</span>
+                    <span className="text-sm font-bold text-blue-300">99.53%</span>
                   </div>
                   <div className="w-full bg-blue-900/30 rounded-full h-2">
                     <div
@@ -151,7 +151,7 @@ export default function HeroSection() {
                       <Instagram className="h-5 w-5 text-[#E1306C] mr-2" />
                       <span className="text-sm font-medium text-blue-100">Instagram</span>
                     </div>
-                    <span className="text-sm font-bold text-blue-300">92%</span>
+                    <span className="text-sm font-bold text-blue-300">91.4%</span>
                   </div>
                   <div className="w-full bg-blue-900/30 rounded-full h-2">
                     <div
@@ -164,7 +164,7 @@ export default function HeroSection() {
                 <div className="pt-4 border-t border-blue-800/50">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium text-blue-200">Score moyen</span>
-                    <span className="text-lg font-bold text-white">92%</span>
+                    <span className="text-lg font-bold text-white">94.35%</span>
                   </div>
                   <div className="text-xs text-blue-300/70 italic">Basé sur des tests avec plus de 10,000 profils</div>
                 </div>
